@@ -81,6 +81,7 @@ class ProductController extends AdminController
         $form->textarea('description', __('Description'));
         $form->number('price', __('Price'));
         $form->select('category_id', __('Category Name'))->options(Category::all()->pluck('name', 'id'));
+        $form->image('image', __('Image'));
         return $form;
     }
 }

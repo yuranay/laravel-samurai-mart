@@ -32,6 +32,7 @@
                 <input type="hidden" name="name" value="{{$product->name}}">
                 <input type="hidden" name="price" value="{{$product->price}}">
                 <input type="hidden" name="image" value="{{$product->image}}">
+                <input type="hidden" name="carriage" value="{{$product->carriage_flag}}">
                 <div class="form-group row">
                     <label for="quantity" class="col-sm-2 col-form-label">数量</label>
                     <div class="col-sm-10">
@@ -60,6 +61,12 @@
         <div class="offset-1 col-11">
             <hr class="w-100">
             <h3 class="float-left">カスタマーレビュー</h3>
+            <p class="star-rating">
+                <span class="star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}">
+                    {{$product->reviews->avg('score')}}
+                </span>
+            </p>
+
         </div>
 
         <div class="offset-1 col-10">

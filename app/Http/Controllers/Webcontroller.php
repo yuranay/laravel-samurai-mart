@@ -18,6 +18,8 @@ class Webcontroller extends Controller
 
         $recently_products = Product::orderBy('created_at', 'desc')->take(4)->get();
 
-        return view('web.index', compact('major_categories', 'categories', 'recently_products'));
+        $recommend_products = Product::where('recommend_flag', true)->take(3)->get();
+
+        return view('web.index', compact('major_categories', 'categories', 'recently_products', 'recommend_products'));
     }
 }

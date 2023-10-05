@@ -48,6 +48,11 @@
                             {{ $recently_product->name }}<br>
                             <label>￥{{ $recently_product->price }}</label>
                         </p>
+                        <p class="star-rating">
+                            <span class="star-rating" data-rate="{{ round($recently_product->reviews->avg('score') * 2) / 2 }}">
+                                {{ $recently_product->reviews->avg('score') }}
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="row">
     <div class="col-2">
@@ -24,6 +25,19 @@
                             {{ $recommend_product->name }}<br>
                             <label>￥{{ $recommend_product->price }}</label>
                         </p>
+                        <p class="star-rating">
+                            <span class="star-rating" data-rate="{{ round($recommend_product->reviews->avg('score') * 2) / 2 }}">
+                            </span>
+                        </p>
+                        <!-- <p class="star-rating">
+                            <span class="star-rating" data-rate="{{ round($recommend_product->reviews->avg('score') * 2) / 2 }}">
+                                @php
+                                $avgScore = round($recommend_product->reviews->avg('score') * 2) / 2;
+                                $fullStars = floor($avgScore);
+                                $halfStar = $avgScore - $fullStars >= 0.5;
+                                @endphp
+                                @for ($i = 1; $i <= 5; $i++) @if ($i <=$fullStars) ★ @elseif ($halfStar && $i==ceil($avgScore)) ★ @else ☆ @endif @endfor </span>
+                        </p> -->
                     </div>
                 </div>
             </div>
@@ -50,9 +64,17 @@
                         </p>
                         <p class="star-rating">
                             <span class="star-rating" data-rate="{{ round($recently_product->reviews->avg('score') * 2) / 2 }}">
-                                {{ $recently_product->reviews->avg('score') }}
                             </span>
                         </p>
+                        <!-- <p class="star-rating">
+                            <span class="star-rating" data-rate="{{ round($recently_product->reviews->avg('score') * 2) / 2 }}">
+                                @php
+                                $avgScore = round($recently_product->reviews->avg('score') * 2) / 2;
+                                $fullStars = floor($avgScore);
+                                $halfStar = $avgScore - $fullStars >= 0.5;
+                                @endphp
+                                @for ($i = 1; $i <= 5; $i++) @if ($i <=$fullStars) ★ @elseif ($halfStar && $i==ceil($avgScore)) ★ @else ☆ @endif @endfor </span>
+                        </p> -->
                     </div>
                 </div>
             </div>

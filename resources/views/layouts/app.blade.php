@@ -20,6 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/samuraimart.css') }}" rel="stylesheet">
+
+
 </head>
 
 <body>

@@ -61,19 +61,10 @@
         <div class="offset-1 col-11">
             <hr class="w-100">
             <h3 class="float-left">カスタマーレビュー</h3>
-            <p class="star-rating">
-                <span class="star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}">
-                </span>
-            </p>
-            <!-- <p class="star-rating">
-                <span class="star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}">
-                    @php
-                    $avgScore = round($product->reviews->avg('score') * 2) / 2;
-                    $fullStars = floor($avgScore);
-                    $halfStar = $avgScore - $fullStars >= 0.5;
-                    @endphp
-                    @for ($i = 1; $i <= 5; $i++) @if ($i <=$fullStars) ★ @elseif ($halfStar && $i==ceil($avgScore)) ★ @else ☆ @endif @endfor </span>
-            </p> -->
+            <!-- <p class="star-rating"> -->
+            <span class="star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}">
+            </span>
+            <!-- </p> -->
 
         </div>
 

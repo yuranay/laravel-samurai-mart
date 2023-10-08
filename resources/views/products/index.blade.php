@@ -24,10 +24,10 @@
                                 {{$product->name}}<br>
                                 <label>￥{{$product->price}}</label>
                             </p>
-                            <p class="star-rating">
-                                <span class="star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}">
-                                </span>
-                            </p>
+                            <!-- <p class="star-rating"> -->
+                            <span class="star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}">
+                            </span>
+                            <!-- </p> -->
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,13 @@
     <div class="col-9">
         <div class="container mt-4">
             <div class="row w-100">
+                @php
+                use App\Models\Product;
+
+                $products = Product::withAvg('reviews', 'score')
+                ->orderBy('reviews_avg_score', 'desc')
+                ->get();
+                @endphp
                 @foreach($products as $product)
                 <div class="col-3">
                     <a href="{{route('products.show', $product)}}">
@@ -26,6 +33,7 @@
                             </p>
                             <!-- <p class="star-rating"> -->
                             <span class="star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}">
+                                <span class="review-count">{{ $product->reviews->count() }}</span>
                             </span>
                             <!-- </p> -->
                         </div>

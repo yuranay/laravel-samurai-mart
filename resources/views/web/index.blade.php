@@ -27,7 +27,9 @@
                         </p>
                         <!-- <p class="star-rating"> -->
                         <span class="star-rating" data-rate="{{ round($recommend_product->reviews->avg('score') * 2) / 2 }}">
+                            <span class="review-count">{{ $recommend_product->reviews->count() }}</span>
                         </span>
+
                         <!-- </p> -->
                     </div>
                 </div>
@@ -55,6 +57,7 @@
                         </p>
                         <!-- <p class="star-rating"> -->
                         <span class="star-rating" data-rate="{{ round($recently_product->reviews->avg('score') * 2) / 2 }}">
+                            <span class="review-count">{{ $recently_product->reviews->count() }}</span>
                         </span>
                         <!-- </p> -->
                     </div>

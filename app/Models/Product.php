@@ -21,6 +21,8 @@ class Product extends Model
         'carriage_flag',
     ];
 
+    public $sortable = ['star-rating'];
+
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
@@ -29,5 +31,10 @@ class Product extends Model
     public function reviews()
     {
         return $this->hasMany('App\Models\Review');
+    }
+
+    public function starRatingSortable($query, $direction)
+    {
+        return $query->orderBy('star-rating', $direction);
     }
 }
